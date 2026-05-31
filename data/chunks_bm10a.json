@@ -1,0 +1,402 @@
+[
+  {
+    "phrase": "מַתְנִיתִין מַנִּי",
+    "normalized": "מתניתין מני",
+    "transliteration": "matnitin mani",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:1"],
+    "evidence": ["מַתְנִיתִין מַנִּי – רַבָּנַן הִיא"],
+    "gloss": "Whose view is represented by the Mishnah?",
+    "notes": "Opens an attribution problem by asking which tannaitic position the mishnah follows."
+  },
+  {
+    "phrase": "אֶלָּא אִי אָמְרַתְּ",
+    "normalized": "אלא אי אמרת",
+    "transliteration": "ella i amart",
+    "function": "presumption",
+    "refs": ["Bava Metzia 10a:1"],
+    "evidence": ["אֶלָּא אִי אָמְרַתְּ בְּעָשִׁיר וְעָנִי מַחְלוֹקֶת"],
+    "gloss": "But if you say / assume...",
+    "notes": "Introduces a hypothetical reading whose consequences are tested immediately."
+  },
+  {
+    "phrase": "הָא מַנִּי",
+    "normalized": "הא מני",
+    "transliteration": "ha mani",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:1"],
+    "evidence": ["הָא מַנִּי? לָא רַבָּנַן וְלָא רַבִּי אֱלִיעֶזֶר"],
+    "gloss": "Then whose view is this?",
+    "notes": "A pointed version of attribution-questioning, often used as a difficulty against an interpretation."
+  },
+  {
+    "phrase": "אָמַר לֵיהּ",
+    "normalized": "אמר ליה",
+    "transliteration": "amar lei",
+    "function": "answer",
+    "refs": ["Bava Metzia 10a:2", "Bava Metzia 10a:9", "Bava Metzia 10a:11"],
+    "evidence": ["אֲמַר לֵיהּ, מַתְנִיתִין דְּאָמַר תְּחִילָּה", "אֲמַר לֵיהּ: שָׁאנֵי פּוֹעֵל", "אֲמַר לֵיהּ: כֹּל כַּמָּה דְּלָא הָדַר בֵּיהּ"],
+    "gloss": "He said to him.",
+    "notes": "Dialogue marker; in these occurrences it introduces the response to a challenge."
+  },
+  {
+    "phrase": "הָכִי נָמֵי מִסְתַּבְּרָא",
+    "normalized": "הכי נמי מסתברא",
+    "transliteration": "hakhi nami mistabra",
+    "function": "proof",
+    "refs": ["Bava Metzia 10a:3"],
+    "evidence": ["הָכִי נָמֵי מִסְתַּבְּרָא, דְּקָתָנֵי סֵיפָא"],
+    "gloss": "So too, it is reasonable / this also stands to reason.",
+    "notes": "Flags support for a proposed answer from the wording of the text."
+  },
+  {
+    "phrase": "דְּקָתָנֵי סֵיפָא",
+    "normalized": "דקתני סיפא",
+    "transliteration": "de-katanei seifa",
+    "function": "proof",
+    "refs": ["Bava Metzia 10a:3"],
+    "evidence": ["דְּקָתָנֵי סֵיפָא: אִם מִשֶּׁנְּתָנָהּ לוֹ"],
+    "gloss": "As the latter clause teaches.",
+    "notes": "Introduces proof from the wording of the end of a mishnah/baraita."
+  },
+  {
+    "phrase": "לְמָה לִי",
+    "normalized": "למה לי",
+    "transliteration": "lemah li",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:3"],
+    "evidence": ["תְּחִילָּה בְּסֵיפָא לְמָה לִי?"],
+    "gloss": "Why do I need it?",
+    "notes": "Asks why a word or clause is necessary; here it probes surplus wording."
+  },
+  {
+    "phrase": "פְּשִׁיטָא",
+    "normalized": "פשיטא",
+    "transliteration": "peshita",
+    "function": "presumption",
+    "refs": ["Bava Metzia 10a:3"],
+    "evidence": ["פְּשִׁיטָא, אַף עַל גַּב דְּלָא אָמַר תְּחִילָּה"],
+    "gloss": "It is obvious.",
+    "notes": "States an expected default, making the extra wording demand explanation."
+  },
+  {
+    "phrase": "אֶלָּא לָאו ... קָא מַשְׁמַע לַן",
+    "normalized": "אלא לאו ... קא משמע לן",
+    "transliteration": "ella lav ... ka mashma lan",
+    "function": "conclusion",
+    "refs": ["Bava Metzia 10a:3"],
+    "evidence": ["אֶלָּא לָאו הָא קָא מַשְׁמַע לַן"],
+    "gloss": "Rather, is it not teaching us...?",
+    "notes": "Draws an inference from apparently superfluous wording."
+  },
+  {
+    "phrase": "וְאִידָּךְ",
+    "normalized": "ואידך",
+    "transliteration": "ve-iddakh",
+    "function": "implied-question",
+    "refs": ["Bava Metzia 10a:4"],
+    "evidence": ["וְאִידָּךְ תָּנָא סֵיפָא לְגַלּוֹיֵי רֵישָׁא"],
+    "gloss": "And the other [authority]?",
+    "notes": "Elliptical prompt asking how the opposing view handles the evidence."
+  },
+  {
+    "phrase": "מַאי טַעְמָא",
+    "normalized": "מאי טעמא",
+    "transliteration": "mai ta'ama",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:6", "Bava Metzia 10a (new mishnah sugya)"],
+    "evidence": ["מַאי טַעְמָא? הָוֵי תּוֹפֵס לְבַעַל חוֹב", "[מַאי טַעְמָא] תַּקִּינוּ רַבָּנַן"],
+    "gloss": "What is the reason?",
+    "notes": "A recurring reason-seeking formula; one instance asks for the basis of a legal rule, another for the rationale of four-cubit acquisition."
+  },
+  {
+    "phrase": "אֵיתִיבֵיהּ",
+    "normalized": "איתיביה",
+    "transliteration": "eitvei",
+    "function": "proof",
+    "refs": ["Bava Metzia 10a:7"],
+    "evidence": ["אֵיתִיבֵיהּ רָבָא לְרַב נַחְמָן: מְצִיאַת פּוֹעֵל לְעַצְמוֹ"],
+    "gloss": "He raised an objection to him.",
+    "notes": "Introduces a source as a challenge; tagged as proof because the function is evidentiary."
+  },
+  {
+    "phrase": "בַּמֶּה דְּבָרִים אֲמוּרִים",
+    "normalized": "במה דברים אמורים",
+    "transliteration": "ba-meh devarim amurim",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:8"],
+    "evidence": ["בַּמֶּה דְּבָרִים אֲמוּרִים – בִּזְמַן שֶׁאָמַר לוֹ"],
+    "gloss": "In what case were these words said?",
+    "notes": "A limiting-case formula embedded in the cited baraita."
+  },
+  {
+    "phrase": "שָׁאנֵי",
+    "normalized": "שאני",
+    "transliteration": "shani",
+    "function": "answer",
+    "refs": ["Bava Metzia 10a:9"],
+    "evidence": ["שָׁאנֵי פּוֹעֵל, דְּיָדוֹ כְּיַד בַּעַל הַבַּיִת"],
+    "gloss": "It is different.",
+    "notes": "Distinguishes the cited case from the challenged rule."
+  },
+  {
+    "phrase": "וְהָאָמַר",
+    "normalized": "והאמר",
+    "transliteration": "ve-ha amar",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:10"],
+    "evidence": ["וְהָאָמַר רַב: פּוֹעֵל יָכוֹל לַחֲזוֹר בּוֹ"],
+    "gloss": "But didn’t [X] say...?",
+    "notes": "Challenges an answer with an apparently contradictory amoraic statement."
+  },
+  {
+    "phrase": "וְאִם תֹּאמַר",
+    "normalized": "ואם תאמר",
+    "transliteration": "ve-im tomar",
+    "function": "implied-question",
+    "refs": ["Bava Metzia 10a:12"],
+    "evidence": ["וְאִם תֹּאמַר מִשְׁנָתֵינוּ"],
+    "gloss": "And if you would say / object...",
+    "notes": "Anticipates an unstated difficulty from the Mishnah."
+  },
+  {
+    "phrase": "וְאִי אָמְרַתְּ",
+    "normalized": "ואי אמרת",
+    "transliteration": "ve-i amart",
+    "function": "presumption",
+    "refs": ["Bava Metzia 10a:16", "Bava Metzia 10a, four-cubit sugya"],
+    "evidence": ["וְאִי אָמְרַתְּ אַרְבַּע אַמּוֹת שֶׁל אָדָם קוֹנוֹת לוֹ"],
+    "gloss": "And if you say / assume...",
+    "notes": "Sets up a consequence of the prior legal statement, usually to produce a challenge."
+  },
+  {
+    "phrase": "הָכָא בְּמַאי עָסְקִינַן",
+    "normalized": "הכא במאי עסקינן",
+    "transliteration": "hakha be-mai askinan",
+    "function": "answer",
+    "refs": ["Bava Metzia 10a:17"],
+    "evidence": ["הָכָא בְּמַאי עָסְקִינַן – דְּלָא אֲמַר ״אֶקְנֵי״"],
+    "gloss": "Here, what case are we dealing with?",
+    "notes": "Resolves a contradiction by narrowing the case under discussion."
+  },
+  {
+    "phrase": "מַאי הָוֵי",
+    "normalized": "מאי הוי",
+    "transliteration": "mai havei",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:18"],
+    "evidence": ["וְאִי תַּקּוּן רַבָּנַן, כִּי לָא אֲמַר מַאי הָוֵי"],
+    "gloss": "What of it? / What difference would it make?",
+    "notes": "Questions whether the proposed distinction actually matters."
+  },
+  {
+    "phrase": "גַּלִּי דַּעְתֵּיהּ",
+    "normalized": "גלי דעתיה",
+    "transliteration": "galli da'atei",
+    "function": "answer",
+    "refs": ["Bava Metzia 10a:19"],
+    "evidence": ["כֵּיוָן דְּנָפַל עָלֶיהָ גַּלִּי דַּעְתֵּיהּ"],
+    "gloss": "He revealed his intention.",
+    "notes": "Explains why the default acquisition mechanism does not apply in the special case."
+  },
+  {
+    "phrase": "וְהָא ... קָאָמַר",
+    "normalized": "והא ... קאמר",
+    "transliteration": "ve-ha ... ka-amar",
+    "function": "question",
+    "refs": ["Bava Metzia 10a, four-cubit sugya"],
+    "evidence": ["וְהָא בְּכׇל מָקוֹם קָאָמַר"],
+    "gloss": "But didn’t he say...?",
+    "notes": "Challenges a limitation by appeal to the wording of a prior statement."
+  },
+  {
+    "phrase": "לְאֵתוֹיֵי",
+    "normalized": "לאתויי",
+    "transliteration": "le-ituyei",
+    "function": "answer",
+    "refs": ["Bava Metzia 10a, four-cubit sugya"],
+    "evidence": ["כׇּל מָקוֹם – לְאֵתוֹיֵי צִידֵּי רְשׁוּת הָרַבִּים"],
+    "gloss": "To include.",
+    "notes": "Interprets an expansive term as adding a specific case rather than being fully literal."
+  },
+  {
+    "phrase": "בְּמַאי קָמִיפַּלְגִי",
+    "normalized": "במאי קמיפלגי",
+    "transliteration": "be-mai ka-mipalgei",
+    "function": "question",
+    "refs": ["Bava Metzia 10a, minor/courtyard sugya"],
+    "evidence": ["בְּמַאי קָמִיפַּלְגִי? מַר סָבַר"],
+    "gloss": "About what do they disagree?",
+    "notes": "Frames the conceptual basis of an amoraic dispute."
+  },
+  {
+    "phrase": "מַר סָבַר ... וּמַר סָבַר",
+    "normalized": "מר סבר ... ומר סבר",
+    "transliteration": "mar savar ... u-mar savar",
+    "function": "answer",
+    "refs": ["Bava Metzia 10a, minor/courtyard sugya"],
+    "evidence": ["מַר סָבַר חָצֵר מִשּׁוּם יָדָהּ אִיתְרַבַּאי ... וּמַר סָבַר חָצֵר מִשּׁוּם שְׁלִיחוּת אִיתְרַבַּאי"],
+    "gloss": "One master holds... and one master holds...",
+    "notes": "Provides the opposed rationales behind a dispute."
+  },
+  {
+    "phrase": "מִי אִיכָּא מַאן דְּאָמַר",
+    "normalized": "מי איכא מאן דאמר",
+    "transliteration": "mi ikka man de-amar",
+    "function": "question",
+    "refs": ["Bava Metzia 10a, minor/courtyard sugya"],
+    "evidence": ["מִי אִיכָּא מַאן דְּאָמַר חָצֵר מִשּׁוּם שְׁלִיחוּת אִיתְרַבַּאי"],
+    "gloss": "Is there anyone who says...?",
+    "notes": "Expresses incredulity before citing a contradiction."
+  },
+  {
+    "phrase": "וְהָתַנְיָא",
+    "normalized": "והתניא",
+    "transliteration": "ve-ha tanya",
+    "function": "proof",
+    "refs": ["Bava Metzia 10a, minor/courtyard sugya"],
+    "evidence": ["וְהָתַנְיָא: ׳בְּיָדוֹ׳ אֵין לִי אֶלָּא יָדוֹ"],
+    "gloss": "But isn’t it taught in a baraita...?",
+    "notes": "Introduces tannaitic evidence as a challenge."
+  },
+  {
+    "phrase": "אֵין לִי אֶלָּא ... מִנַּיִן",
+    "normalized": "אין לי אלא ... מנין",
+    "transliteration": "ein li ella ... minayin",
+    "function": "question",
+    "refs": ["Bava Metzia 10a, minor/courtyard sugya"],
+    "evidence": ["אֵין לִי אֶלָּא יָדוֹ, גַּגּוֹ חֲצֵירוֹ וְקַרְפִּיפוֹ מִנַּיִן"],
+    "gloss": "I have only...; from where [do I know]...?",
+    "notes": "Midrashic expansion formula asking for the source of additional cases."
+  },
+  {
+    "phrase": "תַּלְמוּד לוֹמַר",
+    "normalized": "תלמוד לומר",
+    "transliteration": "talmud lomar",
+    "function": "proof",
+    "refs": ["Bava Metzia 10a, minor/courtyard sugya"],
+    "evidence": ["תַּלְמוּד לוֹמַר ׳הִמָּצֵא תִמָּצֵא׳ מִכׇּל מָקוֹם"],
+    "gloss": "The verse therefore says.",
+    "notes": "Cites a scriptural phrase as the proof/source."
+  },
+  {
+    "phrase": "וְאִי סָלְקָא דַעְתָּךְ",
+    "normalized": "ואי סלקא דעתך",
+    "transliteration": "ve-i salka da'atekh",
+    "function": "presumption",
+    "refs": ["Bava Metzia 10a:10"],
+    "evidence": ["וְאִי סָלְקָא דַעְתָּךְ חָצֵר מִשּׁוּם שְׁלִיחוּת אִיתְרַבַּאי"],
+    "gloss": "And if it enters your mind that...",
+    "notes": "Introduces an assumption whose unacceptable consequence is then shown."
+  },
+  {
+    "phrase": "אִם כֵּן",
+    "normalized": "אם כן",
+    "transliteration": "im ken",
+    "function": "conclusion",
+    "refs": ["Bava Metzia 10a:10"],
+    "evidence": ["אִם כֵּן מָצִינוּ שָׁלִיחַ לִדְבַר עֲבֵירָה"],
+    "gloss": "If so / then.",
+    "notes": "Marks the consequence drawn from the stated presumption."
+  },
+  {
+    "phrase": "קַיְימָא לַן",
+    "normalized": "קיימא לן",
+    "transliteration": "kayema lan",
+    "function": "statement",
+    "refs": ["Bava Metzia 10a:10"],
+    "evidence": ["וְקַיְימָא לַן אֵין שָׁלִיחַ לִדְבַר עֲבֵירָה"],
+    "gloss": "We maintain / it is established for us.",
+    "notes": "Invokes an accepted rule as a premise for the difficulty."
+  },
+  {
+    "phrase": "הֵיכָא אָמְרִינַן",
+    "normalized": "היכא אמרינן",
+    "transliteration": "heikha amrinan",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:11"],
+    "evidence": ["הֵיכָא אָמְרִינַן דְּאֵין שָׁלִיחַ לִדְבַר עֲבֵירָה"],
+    "gloss": "Where do we say...?",
+    "notes": "Introduces a scope-limitation of a known rule; question form leads into an answer."
+  },
+  {
+    "phrase": "אֶלָּא מֵעַתָּה",
+    "normalized": "אלא מעתה",
+    "transliteration": "ella me-atta",
+    "function": "question",
+    "refs": ["Bava Metzia 10a:12"],
+    "evidence": ["אֶלָּא מֵעַתָּה, הָאוֹמֵר לְאִשָּׁה וְעֶבֶד"],
+    "gloss": "If so, from now [one should say]...",
+    "notes": "Rhetorical challenge by extending an answer to an implausible parallel case."
+  },
+  {
+    "phrase": "הָכִי נָמֵי",
+    "normalized": "הכי נמי",
+    "transliteration": "hakhi nami",
+    "function": "implied-question",
+    "refs": ["Bava Metzia 10a:12"],
+    "evidence": ["הָכִי נָמֵי דְּמִיחַיַּיב שׁוֹלְחָן"],
+    "gloss": "So too? / Would you also say so?",
+    "notes": "Here used rhetorically within an objection, not as an affirmative answer."
+  },
+  {
+    "phrase": "דִּתְנַן",
+    "normalized": "דתנן",
+    "transliteration": "de-tnan",
+    "function": "proof",
+    "refs": ["Bava Metzia 10a, agency-for-transgression sugya"],
+    "evidence": ["דִּתְנַן נִתְגָּרְשָׁה הָאִשָּׁה נִשְׁתַּחְרֵר הָעֶבֶד חַיָּיבִין לְשַׁלֵּם"],
+    "gloss": "As we learned in a Mishnah.",
+    "notes": "Introduces mishnaic evidence supporting an answer."
+  },
+  {
+    "phrase": "מַאי בֵּינַיְיהוּ",
+    "normalized": "מאי בינייהו",
+    "transliteration": "mai beinaihu",
+    "function": "question",
+    "refs": ["Bava Metzia 10a, agency-for-transgression sugya"],
+    "evidence": ["מַאי בֵּינַיְיהוּ? אִיכָּא בֵּינַיְיהוּ"],
+    "gloss": "What is the practical difference between them?",
+    "notes": "Asks for the nafka minah between two explanations."
+  },
+  {
+    "phrase": "אִיכָּא בֵּינַיְיהוּ",
+    "normalized": "איכא בינייהו",
+    "transliteration": "ikka beinaihu",
+    "function": "answer",
+    "refs": ["Bava Metzia 10a, agency-for-transgression sugya"],
+    "evidence": ["אִיכָּא בֵּינַיְיהוּ כֹּהֵן דְּאָמַר לֵיהּ לְיִשְׂרָאֵל"],
+    "gloss": "There is [a difference] between them.",
+    "notes": "Supplies the practical case distinguishing two views."
+  },
+  {
+    "phrase": "אִי נָמֵי",
+    "normalized": "אי נמי",
+    "transliteration": "i nami",
+    "function": "answer",
+    "refs": ["Bava Metzia 10a, agency-for-transgression sugya"],
+    "evidence": ["אִי נָמֵי אִישׁ דְּאָמַר לָהּ לְאִשָּׁה"],
+    "gloss": "Alternatively / or also.",
+    "notes": "Adds a second example of the same distinction."
+  },
+  {
+    "phrase": "כּוּלֵּי עָלְמָא לָא פְּלִיגִי",
+    "normalized": "כולי עלמא לא פליגי",
+    "transliteration": "kulei alma la peligei",
+    "function": "statement",
+    "refs": ["Bava Metzia 10a, courtyard-from-hand sugya"],
+    "evidence": ["לְעִנְיַן גֵּט כּוּלֵּי עָלְמָא לָא פְּלִיגִי"],
+    "gloss": "Everyone agrees / no one disputes.",
+    "notes": "Defines common ground before isolating the actual disagreement."
+  },
+  {
+    "phrase": "כִּי פְּלִיגִי",
+    "normalized": "כי פליגי",
+    "transliteration": "ki peligei",
+    "function": "statement",
+    "refs": ["Bava Metzia 10a, courtyard-from-hand sugya"],
+    "evidence": ["כִּי פְּלִיגִי לְעִנְיַן מְצִיאָה"],
+    "gloss": "When they disagree / their dispute is only...",
+    "notes": "Narrows the dispute after stating the shared premise."
+  }
+]

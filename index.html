@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jewoulingo MVP</title>
+  <style>
+    :root { color-scheme: light; --ink:#25322d; --muted:#607068; --green:#4f8f54; --pale:#f5f1e8; --gold:#f2c94c; --blue:#456990; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:linear-gradient(135deg,#fbfaf6,#edf6ef); color:var(--ink); }
+    header { padding:24px; display:flex; gap:20px; align-items:center; justify-content:space-between; border-bottom:1px solid #e3ded0; background:#fffdf8cc; position:sticky; top:0; z-index:2; backdrop-filter: blur(10px); }
+    .logo { display:flex; gap:16px; align-items:center; } .logo-mark { font-size:42px; } h1 { margin:0; font-size: clamp(28px, 5vw, 54px); } .tagline { margin:4px 0 0; color:var(--muted); }
+    .stats { display:grid; grid-template-columns:repeat(3, minmax(80px,1fr)); gap:10px; } .stat { background:white; border:1px solid #e4dccb; border-radius:18px; padding:12px; text-align:center; box-shadow:0 8px 24px #0000000d; } .stat strong { display:block; font-size:24px; color:var(--green); }
+    main { width:min(1180px, 96vw); margin:24px auto; display:grid; gap:22px; }
+    .grid { display:grid; grid-template-columns:1.1fr .9fr; gap:22px; }
+    .card { background:#fffdf9; border:1px solid #e2dbcd; border-radius:28px; padding:22px; box-shadow:0 18px 50px #00000012; }
+    h2 { margin-top:0; } .controls { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; } button { border:0; border-radius:999px; padding:10px 14px; background:#e9efe8; color:var(--ink); font-weight:700; cursor:pointer; transition:.15s ease; } button:hover { transform:translateY(-1px); background:#dceada; }
+    .hebrew { font-family: Georgia, 'Times New Roman', serif; font-size:clamp(29px, 6vw, 48px); line-height:2; text-align:right; } .he-word { font:inherit; background:transparent; border-radius:12px; padding:3px 5px; } .known-highlight { background:linear-gradient(180deg, transparent 45%, #b7e4b4 45%); }
+    .ref { color:var(--blue); font-weight:800; } .translation { color:var(--muted); line-height:1.6; } #popover { min-height:150px; background:var(--pale); border-radius:18px; padding:16px; }
+    .word-pill { display:inline-flex; flex-direction:column; margin:5px; background:#fff; border:1px solid #e4dccb; } .word-pill.known { background:#dcf2d9; } .word-pill small { color:var(--muted); font-weight:500; }
+    .prompt { font-family:Georgia,serif; font-size:42px; text-align:center; margin:12px; } .tiles, .actions { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0; } .answer-bar { min-height:46px; border:2px dashed #d8cfbd; border-radius:18px; padding:12px; color:var(--muted); } input { width:100%; padding:14px 16px; border:1px solid #d9d0c0; border-radius:16px; font-size:18px; }
+    .feedback { padding:14px; border-radius:16px; margin-top:12px; } .feedback.correct { background:#dcf2d9; } .feedback.near { background:#fff4c2; } .feedback.again, .warning { background:#ffe2de; padding:12px; border-radius:12px; }
+    .word-list { display:flex; gap:8px; flex-wrap:wrap; } .word-list span { background:#e9efe8; padding:8px 10px; border-radius:12px; } .chart { display:flex; align-items:end; gap:8px; height:130px; margin-top:18px; border-bottom:2px solid #d8cfbd; } .bar { width:32px; background:linear-gradient(#82c979,#4f8f54); border-radius:8px 8px 0 0; position:relative; } .bar span { position:absolute; top:-22px; font-size:12px; }
+    footer { text-align:center; padding:26px; color:var(--muted); }
+    @media (max-width:850px){ header{display:block}.stats{margin-top:14px}.grid{grid-template-columns:1fr}.card{padding:16px}.hebrew{font-size:34px} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><div class="logo-mark">🕊️</div><div><h1>Jewoulingo</h1><p class="tagline">Track A MVP: learn BM 10a from words → sentences → daf.</p></div></div>
+    <section class="stats"><div class="stat"><strong id="known-count">0</strong>known words</div><div class="stat"><strong id="streak">0</strong>day streak</div><div class="stat"><strong id="due-count">0</strong>reviews due</div></section>
+  </header>
+  <main>
+    <section class="grid"><div class="card"><h2>1. Learn the Mishnah words</h2><p>Tap words to add them to your known-word library. Practice unlocks only when every required word is known.</p><div id="learn-queue"></div></div><div class="card"><h2>Habit</h2><p>Correct or near-correct practice increments today’s Torah habit. This demo stores progress in localStorage.</p><button id="reset-demo">Reset demo progress</button></div></section>
+    <section class="grid"><div class="card"><h2>2. SRS lesson loop</h2><div id="lesson-card"></div></div><div class="card"><h2>Word popover</h2><div id="popover"></div></div></section>
+    <section class="card"><div class="controls"><h2>3. BM 10a Mishnah reader</h2><button id="toggle-highlight">Toggle known-word highlighter</button></div><div id="reader"></div></section>
+    <section class="card"><h2>4. Word library growth</h2><div id="library"></div></section>
+  </main>
+  <footer>Sefaria-only data policy · William Davidson / Steinsaltz cached text · No ArtScroll.</footer>
+  <script>
+    const dafContent = { segments: [{ ref: 'Bava Metzia 10a:13', he: 'רָאָה אֶת הַמְּצִיאָה וְנָפַל עָלֶיהָ, וּבָא אַחֵר וְהֶחְזִיק בָּהּ – זֶה שֶׁהֶחְזִיק בָּהּ זָכָה בָּהּ.', en: 'MISHNA: If one saw a found item and fell upon it, intending to thereby acquire it, but did not employ one of the formal modes of acquisition, and then another came and seized it, the one who seized it acquired it because he employed one of the formal modes of acquisition.', words: [
+      { surface:'רָאָה', normalized:'ראה', lemma:'ראה', root:'ראה', gloss:'saw', clusterHints:['perception','case-opening verb'] },
+      { surface:'אֶת', normalized:'את', lemma:'את', root:null, gloss:'direct-object marker', clusterHints:['syntax','marks definite object'] },
+      { surface:'הַמְּצִיאָה', normalized:'המציאה', lemma:'מציאה', root:'מצא', gloss:'the found item / lost property', clusterHints:['object','lost-and-found','definite noun'] },
+      { surface:'וְנָפַל', normalized:'ונפל', lemma:'נפל', root:'נפל', gloss:'and fell', clusterHints:['physical act','attempted acquisition'] },
+      { surface:'עָלֶיהָ', normalized:'עליה', lemma:'על', root:null, gloss:'upon it / on her', clusterHints:['preposition + 3fs suffix','refers to the found item'] },
+      { surface:'וּבָא', normalized:'ובא', lemma:'בא', root:'בוא', gloss:'and came', clusterHints:['new actor','sequential action'] },
+      { surface:'אַחֵר', normalized:'אחר', lemma:'אחר', root:'אחר', gloss:'another person', clusterHints:['competitor','indefinite actor'] },
+      { surface:'וְהֶחְזִיק', normalized:'והחזיק', lemma:'החזיק', root:'חזק', gloss:'and seized / took hold', clusterHints:['formal acquisition','ḥazaqah/holding'] },
+      { surface:'בָּהּ', normalized:'בה', lemma:'ב', root:null, gloss:'in it / of it', clusterHints:['preposition + 3fs suffix','object of seizure'] },
+      { surface:'זֶה', normalized:'זה', lemma:'זה', root:null, gloss:'this one / the one', clusterHints:['legal ruling subject'] },
+      { surface:'שֶׁהֶחְזִיק', normalized:'שהחזיק', lemma:'החזיק', root:'חזק', gloss:'who seized / took hold', clusterHints:['relative clause','acquisition action'] },
+      { surface:'זָכָה', normalized:'זכה', lemma:'זכה', root:'זכה', gloss:'acquired / won rights', clusterHints:['legal outcome','ruling verb'] }
+    ] }] };
+    const coreWords = [
+      ['ראה','saw'], ['את','direct-object marker'], ['מציאה','found item'], ['נפל','fell'], ['על','on / upon'], ['בא','came'], ['אחר','another'], ['החזיק','took hold / seized'], ['ב','in / by / of'], ['זכה','acquired'], ['אמר','said'], ['מאי','what'], ['טעמא','reason'], ['תא','come'], ['שמע','hear']
+    ].map(([normalized, gloss]) => ({ normalized, word: normalized, gloss }));
+    const chunkCatalog = [
+      { phrase:'מַתְנִיתִין מַנִּי', normalized:'מתניתין מני', function:'question' },
+      { phrase:'אָמַר לֵיהּ', normalized:'אמר ליה', function:'answer' },
+      { phrase:'מַאי טַעְמָא', normalized:'מאי טעמא', function:'question' },
+      { phrase:'תָּא שְׁמַע', normalized:'תא שמע', function:'proof' },
+      { phrase:'אִי הָכִי', normalized:'אי הכי', function:'implied-question' }
+    ];
+    const lessonCards = [
+      { id: 'bm10a-found-item-case', promptHe: 'רָאָה אֶת הַמְּצִיאָה', requiredWords: ['ראה', 'את', 'מציאה'], acceptedTranslations: ['he saw the found item', 'saw the found item', 'one saw the found item'], tiles: ['he', 'saw', 'the', 'found', 'item', 'fell', 'upon', 'it'], teachingPoint: 'Case-opening verbs tell you what happened before the ruling.' },
+      { id: 'bm10a-fell-on-it', promptHe: 'וְנָפַל עָלֶיהָ', requiredWords: ['נפל', 'על'], acceptedTranslations: ['and fell upon it', 'and he fell on it', 'fell upon it'], tiles: ['and', 'fell', 'upon', 'it', 'another', 'acquired'], teachingPoint: 'עליה is על + a feminine suffix: “upon it.”' },
+      { id: 'bm10a-acquired-it', promptHe: 'זָכָה בָּהּ', requiredWords: ['זכה', 'ב'], acceptedTranslations: ['he acquired it', 'acquired it', 'won rights to it'], tiles: ['he', 'acquired', 'it', 'saw', 'the'], teachingPoint: 'זכה is the ruling verb: the person legally acquires the object.' },
+      { id: 'bm10a-other-held', promptHe: 'וּבָא אַחֵר וְהֶחְזִיק בָּהּ', requiredWords: ['בא', 'אחר', 'החזיק', 'ב'], acceptedTranslations: ['and another came and took hold of it', 'another came and seized it', 'and another came and held it'], tiles: ['and', 'another', 'came', 'and', 'took', 'hold', 'of', 'it'], teachingPoint: 'The second actor’s physical hold is the acquisition act in this Mishnah.' }
+    ];
+    const HEBREW_NIKKUD = /[\u0591-\u05C7]/g;
+    const FINAL_LETTERS = { ך: 'כ', ם: 'מ', ן: 'נ', ף: 'פ', ץ: 'צ' };
+    const $ = (id) => document.getElementById(id);
+    const today = () => new Date().toISOString().slice(0, 10);
+    const state = { progress: loadProgress(), selectedWord: null, currentCard: null, tileAnswer: [], feedback: null, highlight: true };
+
+    function stripNikkud(text) { return text.normalize('NFC').replace(HEBREW_NIKKUD, ''); }
+    function normalizeHebrewToken(token) { return stripNikkud(token).replace(/[״׳"'.,:;!?()[\]{}־–—]/g, '').split('').map((char) => FINAL_LETTERS[char] ?? char).join('').trim(); }
+    function tokenizeHebrew(text) { return text.split(/\s+/).map((surface) => ({ surface, normalized: normalizeHebrewToken(surface) })); }
+    function initialProgress() { return { knownWords: ['ראה', 'את', 'מציאה'], reviews: {}, completedDates: [], history: [{ date: today(), count: 3 }] }; }
+    function loadProgress() { try { return { ...initialProgress(), ...JSON.parse(localStorage.getItem('jewoulingo-progress-v1') || '{}') }; } catch { return initialProgress(); } }
+    function saveProgress(progress) { localStorage.setItem('jewoulingo-progress-v1', JSON.stringify(progress)); }
+    function learnWords(progress, words) { const known = new Set(progress.knownWords); words.forEach((word) => known.add(word)); const knownWords = [...known]; const date = today(); const history = [...progress.history.filter((h) => h.date !== date), { date, count: knownWords.length }].slice(-14); return { ...progress, knownWords, history }; }
+    function markPractice(progress) { const date = today(); return { ...progress, completedDates: progress.completedDates.includes(date) ? progress.completedDates : [...progress.completedDates, date] }; }
+    function currentStreak(completedDates) { const dates = new Set(completedDates); let streak = 0; const cursor = new Date(); while (dates.has(cursor.toISOString().slice(0, 10))) { streak += 1; cursor.setDate(cursor.getDate() - 1); } return streak; }
+    function createNewCard(cardId) { return { cardId, repetitions: 0, intervalDays: 0, easeFactor: 2.5, dueDate: new Date().toISOString(), lastQuality: null }; }
+    function scheduleReview(card, quality, now = new Date()) { const boundedQuality = Math.max(0, Math.min(5, Number(quality))); const repetitions = boundedQuality < 3 ? 0 : card.repetitions + 1; const intervalDays = boundedQuality < 3 ? 1 : repetitions === 1 ? 1 : repetitions === 2 ? 6 : Math.max(1, Math.round(card.intervalDays * card.easeFactor)); const easeFactor = Math.max(1.3, card.easeFactor + (0.1 - (5 - boundedQuality) * (0.08 + (5 - boundedQuality) * 0.02))); const due = new Date(now); due.setDate(due.getDate() + intervalDays); return { ...card, repetitions, intervalDays, easeFactor: Number(easeFactor.toFixed(2)), dueDate: due.toISOString(), lastQuality: boundedQuality }; }
+    function generateSentenceFromKnownWords(knownWords, cards) { const known = new Set(knownWords); return cards.find((card) => card.requiredWords.every((word) => known.has(word))) || null; }
+    function gradeTranslation(answer, acceptedTranslations) { const synonyms = new Map([['seized','hold'], ['held','hold'], ['took','hold'], ['won','acquired'], ['rights','acquired'], ['object','item'], ['upon','on'], ['one','he']]); const normalize = (text) => text.toLowerCase().replace(/[^a-z\s]/g, ' ').split(/\s+/).filter(Boolean).map((w) => synonyms.get(w) ?? w); const distance = (a, b) => { const dp = Array.from({ length: a.length + 1 }, (_, i) => [i]); for (let j = 1; j <= b.length; j++) dp[0][j] = j; for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return dp[a.length][b.length]; }; const response = normalize(answer); let best = { score: 0, match: acceptedTranslations[0] ?? '', status: 'again', message: 'Try again.' }; for (const accepted of acceptedTranslations) { const target = normalize(accepted); const overlap = response.filter((word) => new Set(target).has(word)).length; const edit = 1 - distance(response.join(' '), target.join(' ')) / Math.max(response.join(' ').length, target.join(' ').length, 1); const score = Math.max(0, Math.round(((target.length ? overlap / target.length : 0) * 0.7 + edit * 0.3) * 100)); if (score > best.score) best = { score, match: accepted, status: score >= 60 ? 'correct' : score >= 45 ? 'near' : 'again', message: score >= 60 ? 'Correct — strong leining!' : score >= 45 ? 'Near miss — check the key words.' : 'Try again.' }; } return best; }
+    function wordLookup(normalized) { const segmentWord = dafContent.segments.flatMap((s) => s.words).find((w) => normalizeHebrewToken(w.normalized) === normalized || normalizeHebrewToken(w.surface) === normalized); const core = coreWords.find((w) => normalizeHebrewToken(w.normalized) === normalized || normalizeHebrewToken(w.word) === normalized); const chunks = chunkCatalog.filter((chunk) => normalizeHebrewToken(chunk.normalized).includes(normalized)); return { segmentWord, core, chunks }; }
+    function chooseCard() { state.currentCard = generateSentenceFromKnownWords(state.progress.knownWords, lessonCards) || lessonCards[0]; state.tileAnswer = []; state.feedback = null; }
+    function renderStats() { $('known-count').textContent = state.progress.knownWords.length; $('streak').textContent = currentStreak(state.progress.completedDates); $('due-count').textContent = Object.values(state.progress.reviews).filter((card) => new Date(card.dueDate) <= new Date()).length; }
+    function renderLearnQueue() { const needed = ['נפל', 'על', 'בא', 'אחר', 'החזיק', 'ב', 'זכה']; $('learn-queue').innerHTML = needed.map((word) => { const known = state.progress.knownWords.includes(word); const gloss = coreWords.find((w) => w.normalized === word)?.gloss || wordLookup(word).segmentWord?.gloss || 'Gemara word'; return `<button class="word-pill ${known ? 'known' : ''}" data-learn="${word}">${word}<small>${gloss}</small></button>`; }).join(''); }
+    function renderReader() { const known = new Set(state.progress.knownWords.map(normalizeHebrewToken)); $('reader').innerHTML = dafContent.segments.map((segment) => { const words = tokenizeHebrew(segment.he).map(({ surface, normalized }) => { const isKnown = known.has(normalized) || [...known].some((kw) => normalized.endsWith(kw)); return `<button class="he-word ${state.highlight && isKnown ? 'known-highlight' : ''}" data-word="${normalized}" title="Tap for meaning">${surface}</button>`; }).join(' '); return `<article class="daf-segment"><p class="ref">${segment.ref}</p><p class="hebrew" dir="rtl">${words}</p><p class="translation">${segment.en}</p></article>`; }).join(''); }
+    function renderPopover() { if (!state.selectedWord) { $('popover').innerHTML = '<p>Tap any Hebrew/Aramaic word in the reader to see meaning, lemma, root, and common clusters.</p>'; return; } const lookup = wordLookup(state.selectedWord); const word = lookup.segmentWord; $('popover').innerHTML = word ? `<h3 dir="rtl">${word.surface}</h3><p><strong>Gloss:</strong> ${word.gloss}</p><p><strong>Lemma:</strong> ${word.lemma || '—'} ${word.root ? ` · <strong>Root:</strong> ${word.root}` : ''}</p><p><strong>Clusters:</strong> ${(word.clusterHints || []).join(', ') || 'No cluster notes yet.'}</p>${lookup.chunks.length ? `<p><strong>Related chunks:</strong> ${lookup.chunks.map((c) => `${c.phrase} (${c.function})`).join(', ')}</p>` : ''}` : '<p>Word not in the MVP lexicon yet. Add it as known after review.</p>'; }
+    function renderLesson() { if (!state.currentCard) chooseCard(); const card = state.currentCard; const canPractice = card.requiredWords.every((w) => state.progress.knownWords.includes(w)); $('lesson-card').innerHTML = `<div class="prompt" dir="rtl">${card.promptHe}</div><p>${card.teachingPoint}</p>${canPractice ? '' : `<p class="warning">Learn: ${card.requiredWords.filter((w) => !state.progress.knownWords.includes(w)).join(', ')}</p>`}<div class="tiles">${card.tiles.map((tile, i) => `<button data-tile="${i}">${tile}</button>`).join('')}</div><div class="answer-bar">${state.tileAnswer.join(' ') || 'Tap tiles or type below'}</div><input id="free-answer" placeholder="Type an English translation" /><div class="actions"><button id="check-tile">Check tile answer</button><button id="check-free">Check typed answer</button><button id="next-card">Next</button></div>${state.feedback ? `<div class="feedback ${state.feedback.status}"><strong>${state.feedback.message}</strong> Score ${state.feedback.score}. Matched: “${state.feedback.match}”.</div>` : ''}`; }
+    function renderLibrary() { const bars = state.progress.history.map((h) => `<div class="bar" style="height:${Math.max(12, h.count * 8)}px"><span>${h.count}</span></div>`).join(''); $('library').innerHTML = `<h3>${state.progress.knownWords.length} known words</h3><div class="word-list">${state.progress.knownWords.map((w) => `<span>${w}</span>`).join('')}</div><div class="chart">${bars}</div>`; }
+    function persistAndRender() { saveProgress(state.progress); renderStats(); renderLearnQueue(); renderReader(); renderPopover(); renderLesson(); renderLibrary(); }
+    function gradeAndSchedule(answer) { const result = gradeTranslation(answer, state.currentCard.acceptedTranslations); state.feedback = result; const existing = state.progress.reviews[state.currentCard.id] || createNewCard(state.currentCard.id); const quality = result.status === 'correct' ? 5 : result.status === 'near' ? 3 : 1; state.progress.reviews[state.currentCard.id] = scheduleReview(existing, quality); if (result.status !== 'again') state.progress = markPractice(state.progress); persistAndRender(); }
+    document.addEventListener('click', (event) => { const target = event.target.closest('button'); if (!target) return; if (target.dataset.word) { state.selectedWord = target.dataset.word; renderPopover(); } if (target.dataset.learn) { state.progress = learnWords(state.progress, [target.dataset.learn]); chooseCard(); persistAndRender(); } if (target.dataset.tile) { state.tileAnswer.push(state.currentCard.tiles[Number(target.dataset.tile)]); renderLesson(); } if (target.id === 'check-tile') gradeAndSchedule(state.tileAnswer.join(' ')); if (target.id === 'check-free') gradeAndSchedule($('free-answer').value); if (target.id === 'next-card') { chooseCard(); persistAndRender(); } if (target.id === 'toggle-highlight') { state.highlight = !state.highlight; persistAndRender(); } if (target.id === 'reset-demo') { localStorage.clear(); state.progress = loadProgress(); chooseCard(); persistAndRender(); } });
+    chooseCard(); persistAndRender();
+  </script>
+</body>
+</html>
