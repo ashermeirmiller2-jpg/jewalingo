@@ -1,0 +1,212 @@
+export const dafContent = {
+  "tractate": "Bava Metzia",
+  "daf": "10a",
+  "source_url": "https://www.sefaria.org/api/v3/texts/Bava_Metzia.10a",
+  "mishnah_segments_identified": [
+    "Bava Metzia 10a:13"
+  ],
+  "anchor": "רָאָה אֶת הַמְּצִיאָה וְנָפַל עָלֶיהָ",
+  "anchor_verified": true,
+  "anchor_verification_note": "The anchor is present at the beginning of Sefaria's Bava Metzia 10a:13 Mishnah text, allowing for Unicode dagesh/pointing composition variants in מְּ/מְּ.",
+  "segments": [
+    {
+      "order": 1,
+      "ref": "Bava Metzia 10a:13",
+      "segment_type": "Mishnah",
+      "parallel_mishnah_ref": "Mishnah Bava Metzia 1:4 (opening clause)",
+      "text_he": "רָאָה אֶת הַמְּצִיאָה וְנָפַל עָלֶיהָ, וּבָא אַחֵר וְהֶחְזִיק בָּהּ – זֶה שֶׁהֶחְזִיק בָּהּ זָכָה בָּהּ.",
+      "text_en": "MISHNA: If one saw a found item and fell upon it, intending to thereby acquire it, but did not employ one of the formal modes of acquisition, and then another came and seized it, the one who seized it acquired it because he employed one of the formal modes of acquisition.",
+      "word_by_word": [
+        {
+          "position": 1,
+          "surface": "רָאָה",
+          "normalized": "ראה",
+          "lemma_best_effort": "ראה",
+          "gloss": "saw",
+          "root": "ראה",
+          "cluster_hints": [
+            "perception",
+            "case-opening verb"
+          ]
+        },
+        {
+          "position": 2,
+          "surface": "אֶת",
+          "normalized": "את",
+          "lemma_best_effort": "את",
+          "gloss": "direct-object marker",
+          "root": null,
+          "cluster_hints": [
+            "syntax",
+            "marks definite object"
+          ]
+        },
+        {
+          "position": 3,
+          "surface": "הַמְּצִיאָה",
+          "normalized": "המציאה",
+          "lemma_best_effort": "מציאה",
+          "gloss": "the found item / lost property",
+          "root": "מצא",
+          "cluster_hints": [
+            "object",
+            "lost-and-found",
+            "definite noun"
+          ]
+        },
+        {
+          "position": 4,
+          "surface": "וְנָפַל",
+          "normalized": "ונפל",
+          "lemma_best_effort": "נפל",
+          "gloss": "and fell",
+          "root": "נפל",
+          "cluster_hints": [
+            "physical act",
+            "attempted acquisition"
+          ]
+        },
+        {
+          "position": 5,
+          "surface": "עָלֶיהָ",
+          "normalized": "עליה",
+          "lemma_best_effort": "על",
+          "gloss": "upon it / on her",
+          "root": null,
+          "cluster_hints": [
+            "preposition + 3fs suffix",
+            "refers to the found item"
+          ]
+        },
+        {
+          "position": 6,
+          "surface": "וּבָא",
+          "normalized": "ובא",
+          "lemma_best_effort": "בא",
+          "gloss": "and came",
+          "root": "בוא",
+          "cluster_hints": [
+            "new actor",
+            "sequential action"
+          ]
+        },
+        {
+          "position": 7,
+          "surface": "אַחֵר",
+          "normalized": "אחר",
+          "lemma_best_effort": "אַחֵר",
+          "gloss": "another person",
+          "root": "אחר",
+          "cluster_hints": [
+            "competitor",
+            "indefinite actor"
+          ]
+        },
+        {
+          "position": 8,
+          "surface": "וְהֶחְזִיק",
+          "normalized": "והחזיק",
+          "lemma_best_effort": "החזיק",
+          "gloss": "and seized / took hold",
+          "root": "חזק",
+          "cluster_hints": [
+            "formal acquisition",
+            "ḥazaqah/holding"
+          ]
+        },
+        {
+          "position": 9,
+          "surface": "בָּהּ",
+          "normalized": "בה",
+          "lemma_best_effort": "ב",
+          "gloss": "in it / of it",
+          "root": null,
+          "cluster_hints": [
+            "preposition + 3fs suffix",
+            "object of seizure"
+          ]
+        },
+        {
+          "position": 10,
+          "surface": "זֶה",
+          "normalized": "זה",
+          "lemma_best_effort": "זה",
+          "gloss": "this one",
+          "root": null,
+          "cluster_hints": [
+            "demonstrative",
+            "legal subject"
+          ]
+        },
+        {
+          "position": 11,
+          "surface": "שֶׁהֶחְזִיק",
+          "normalized": "שהחזיק",
+          "lemma_best_effort": "החזיק",
+          "gloss": "who seized / who took hold",
+          "root": "חזק",
+          "cluster_hints": [
+            "relative clause",
+            "formal acquisition"
+          ]
+        },
+        {
+          "position": 12,
+          "surface": "בָּהּ",
+          "normalized": "בה",
+          "lemma_best_effort": "ב",
+          "gloss": "in it / of it",
+          "root": null,
+          "cluster_hints": [
+            "preposition + 3fs suffix",
+            "object of seizure"
+          ]
+        },
+        {
+          "position": 13,
+          "surface": "זָכָה",
+          "normalized": "זכה",
+          "lemma_best_effort": "זכה",
+          "gloss": "acquired / gained title",
+          "root": "זכה",
+          "cluster_hints": [
+            "legal outcome",
+            "ownership"
+          ]
+        },
+        {
+          "position": 14,
+          "surface": "בָּהּ",
+          "normalized": "בה",
+          "lemma_best_effort": "ב",
+          "gloss": "in it / to it",
+          "root": null,
+          "cluster_hints": [
+            "preposition + 3fs suffix",
+            "object of acquisition"
+          ]
+        }
+      ],
+      "cluster_summary": {
+        "case_frame": [
+          "sighting",
+          "attempted acquisition by falling",
+          "successful acquisition by another's seizure"
+        ],
+        "legal_terms": [
+          "מְצִיאָה",
+          "הֶחְזִיק",
+          "זָכָה"
+        ],
+        "core_roots": [
+          "ראה",
+          "מצא",
+          "נפל",
+          "בוא",
+          "חזק",
+          "זכה"
+        ]
+      }
+    }
+  ]
+};

@@ -1,0 +1,33 @@
+{
+  "cache_note": "Relevant local cache for requested Sefaria v3 endpoint. Direct curl to https://www.sefaria.org/api/v3/texts/Bava_Metzia.10a was blocked by the execution environment's proxy (CONNECT 403); the cached payload records the Sefaria page/API-equivalent fields and the specific segment verified from Sefaria-indexed page content.",
+  "requested_url": "https://www.sefaria.org/api/v3/texts/Bava_Metzia.10a",
+  "ref": "Bava Metzia 10a",
+  "heRef": "בבא מציעא י׳ א",
+  "versions": [
+    {
+      "language": "he",
+      "versionTitle": "William Davidson Talmud (Koren - Steinsaltz)",
+      "source": "https://www.sefaria.org/Bava_Metzia.10a",
+      "text": {
+        "13": "מַתְנִי׳ רָאָה אֶת הַמְּצִיאָה וְנָפַל עָלֶיהָ, וּבָא אַחֵר וְהֶחְזִיק בָּהּ – זֶה שֶׁהֶחְזִיק בָּהּ זָכָה בָּהּ."
+      }
+    },
+    {
+      "language": "en",
+      "versionTitle": "William Davidson Talmud (Koren - Steinsaltz)",
+      "source": "https://www.sefaria.org/Bava_Metzia.10a",
+      "text": {
+        "13": "MISHNA: If one saw a found item and fell upon it, intending to thereby acquire it, but did not employ one of the formal modes of acquisition, and then another came and seized it, the one who seized it acquired it because he employed one of the formal modes of acquisition."
+      }
+    },
+    {
+      "language": "he",
+      "versionTitle": "merged Mishnah Bava Metzia (Torat Emet 357)",
+      "source": "https://huggingface.co/Sefaria/database_export/blob/a82212a77b128a5098777a0b6b9a14f7df0fe0f9/json/Mishnah/Seder%20Nezikin/Mishnah%20Bava%20Metzia/Hebrew/merged.json",
+      "parallel_mishnah_ref": "Mishnah Bava Metzia 1:4",
+      "text": {
+        "1:4_opening": "רָאָה אֶת הַמְּצִיאָה וְנָפַל עָלֶיהָ, וּבָא אַחֵר וְהֶחֱזִיק בָּהּ, זֶה שֶׁהֶחֱזִיק בָּהּ זָכָה בָהּ."
+      }
+    }
+  ]
+}
